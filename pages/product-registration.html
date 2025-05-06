@@ -503,20 +503,20 @@
               });
 
               // Check reCAPTCHA
-              // const recaptchaResponse = grecaptcha.getResponse();
-              // const recaptchaContainer = document.querySelector('.g-recaptcha');
-              // let isRecaptchaValid = true; // Assume valid initially
-              // if (!recaptchaResponse && recaptchaContainer) { // Only validate if the element exists
-              //     isRecaptchaValid = false;
-              //     isFormValid = false; // Mark form as invalid if reCAPTCHA fails
-              //     if (recaptchaContainer) {
-              //          recaptchaContainer.style.border = '1px solid #dc3545';
-              //          recaptchaContainer.style.borderRadius = '0.25rem';
-              //     }
-              //     console.error("reCAPTCHA verification failed.");
-              // } else if (recaptchaContainer) {
-              //     recaptchaContainer.style.border = 'none'; // Clear border if valid
-              // }
+              const recaptchaResponse = grecaptcha.getResponse();
+              const recaptchaContainer = document.querySelector('.g-recaptcha');
+              let isRecaptchaValid = true; // Assume valid initially
+              if (!recaptchaResponse && recaptchaContainer) { // Only validate if the element exists
+                  isRecaptchaValid = false;
+                  isFormValid = false; // Mark form as invalid if reCAPTCHA fails
+                  if (recaptchaContainer) {
+                       recaptchaContainer.style.border = '1px solid #dc3545';
+                       recaptchaContainer.style.borderRadius = '0.25rem';
+                  }
+                  console.error("reCAPTCHA verification failed.");
+              } else if (recaptchaContainer) {
+                  recaptchaContainer.style.border = 'none'; // Clear border if valid
+              }
 
 
               // Add was-validated class *after* manual checks for visual feedback
